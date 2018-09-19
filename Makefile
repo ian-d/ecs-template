@@ -2,7 +2,10 @@ BINARY=ecs-template
 GOPATH := $(shell go env | grep GOPATH | sed 's/GOPATH="\(.*\)"/\1/')
 
 release: clean clean-cache ## Generate a release, but don't publish to GitHub.
-	goreleaser --skip-validate --skip-publish --snapshot
+	goreleaser --skip-validate --skip-publish
+
+publish: clean clean-cache ## Push release to github
+	goreleaser
 
 compress: ## Uses upx to compress release binaries (if installed, uses all cores/parallel comp.)
 	(find dist/*/* | xargs -I{} -n1 upx "{}") || echo "not using upx for binary compression"
