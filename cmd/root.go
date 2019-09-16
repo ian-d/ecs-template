@@ -47,7 +47,7 @@ var rootCmd = &cobra.Command{
 	Use:     "ecs-template",
 	Short:   "ENV/KMS/SSM aware file templating for ECS.",
 	Long:    ``,
-	Version: `0.0.1`,
+	Version: `0.0.2`,
 	PreRun:  mainPreRun,
 	Run:     runRootCmd,
 }
